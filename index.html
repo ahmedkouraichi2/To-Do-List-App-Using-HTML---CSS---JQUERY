@@ -134,8 +134,12 @@
         $(document).ready(function(){
             $("#input-task").change(function(){
                  var input = $(this).val();
-                 $('ul').append('<li>' + input + '<i class="fas fa-check"></i>  &nbsp;&nbsp; <i class="fas fa-trash-alt"></i>'+'</li>')
-                  
+                 $('ul').append('<li>' + input + '<i class="fas fa-check"></i>  &nbsp;&nbsp; <i class="fas fa-trash-alt"></i>'+'</li>');
+                 $("#input-task").val("");
+                 
+                
+
+
             });
 
             $('ul').on('click','.fa-trash-alt',function(){
