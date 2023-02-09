@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.2/css/all.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <title>jquery-to-do</title>
+</head>
+    <style>
+        *{
+            margin: 0; padding:0;
+            box-sizing: border-box;
+            letter-spacing: 1px;
+            font-family: verdana;
+            text-transform: capitalize;
+
+        }
+
+        body{
+             min-height: 100vh;
+             display: flex;
+             align-items: center; 
+             justify-content: center; 
+             background: linear-gradient(45deg,#ff0 50% ,#333 50%); 
+           
+
+
+        }
+        .container{
+            height: 450px;
+            width: 330px;
+             background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.5);   
+            padding: 10px;
+
+        }
+
+        #input-task{
+            height: 50px;
+            width:100%;
+            outline: none;
+            border-radius: 5px;
+            background: #666;
+            padding:0 10px ;
+            margin:15px 0;
+
+
+        }
+
+        #input::placeholder{
+            color:#bbb;
+
+        }
+        ul:hover{
+           
+        }
+
+        ul .fa-check , .fa-trash-alt{
+            position: absolute;
+            cursor: pointer;
+
+        }
+        ul li {
+            background-color: #ff0;
+            margin-top: 15px;
+            height: 40px;
+            border-radius: 10px;
+            padding: 10px;
+
+        }
+        ul li:hover {
+            background-color: blue;
+            
+        }
+
+        ul .fa-check{
+      
+            color:green;
+            margin-left: 10px;
+            
+        }
+
+        ul .fa-trash-alt{
+            
+            color: #ff0033;
+            margin-left: 10px;
+        }
+
+        ul .checked{
+            background: lightgreen;
+            text-decoration: line-through;
+            transition: .2s;
+             
+        }
+
+
+
+      
+
+
+
+    </style>
+
+
+
+<body>
+     <div>
+         
+     </div>
+    <div class="container" >
+         <div class="card">
+            <input type="text" id="input-task" placeholder="prres enter to add " >
+            <ul style="list-style: none;">
+               
+            </ul>
+         </div>
+
+
+
+         
+
+       
+
+
+
+
+    </div>
+
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $("#input-task").change(function(){
+                 var input = $(this).val();
+                 $('ul').append('<li>' + input + '<i class="fas fa-check"></i>  &nbsp;&nbsp; <i class="fas fa-trash-alt"></i>'+'</li>')
+                  
+            });
+
+            $('ul').on('click','.fa-trash-alt',function(){
+                $(this).parent('li').fadeOut(200);
+            });
+
+            $('ul').on('click','.fa-check',function(){
+                $(this).parent('li').toggleClass('checked');
+            }); 
+
+        });
+         
+    </script>
+</body>
+</html>
